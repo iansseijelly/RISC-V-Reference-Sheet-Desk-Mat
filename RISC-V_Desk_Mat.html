@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
-
   <title>RISC-V Reference Sheet</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
   <style>
     .page {
-      background: #0E0E17;
+      background: #222;
       color: #FFF;
       height: 300mm;
       width: 800mm;
-      font-family: "Rajdhani", "Titillium Web", sans-serif;
+      font-family: "Titillium Web", sans-serif;
       font-weight: normal;
-      font-size: 3.2mm;
+      font-size: 2.8mm;
     }
     .flex {
       display: flex;
@@ -31,15 +26,11 @@
     table {
       width: 100%;
     }
-    table {
-      border: 0.5px solid rgba(255, 56, 69, 0.8);
+    table, th, td {
+      border: 0.5px solid #666;
       border-collapse: collapse;
-      background-color: rgba(255, 56, 69, 0.04); 
-      box-shadow: 5px 5px 5px rgba(255, 56, 69, 0.2); /* Add shadow effect */
-      /* clip-path: polygon(100% 0, 0 100%, 100% 100%); */
     }
     th, td {
-      border:  0.5px solid rgba(255, 56, 69, 0.4);
       padding: 0.6mm 1mm;
     }
     @media print {
@@ -65,55 +56,21 @@
       height: 18mm;
     }
     .header > span {
-      color: #5ef6ff;
       font-size: 7mm;
       line-height: 18mm;
-      margin-left: 2mm;
-      font-weight: 700;
-    }
-    .second_header {
-      background: rgba(255, 56, 69, 0.5); 
-      font-weight: 700;
-      column-span: 4;
-    }
-    .important_blue {
-      color: #5ef6ff;
-    }
-    table td:first-child {
-      color: #5ef6ff;
-    }
-    /* A csr table that inherits from table */
-    /* .csr_table {
-      border: 0.5px solid rgba(255, 56, 69, 0.8);
-      border-collapse: collapse;
-      background-color: rgba(255, 56, 69, 0.04); 
-    }
-    .csr_table th, .csr_table td {
-      border:  0.5px solid rgba(255, 56, 69, 0.4);
-      padding: 0.6mm 1mm;
-    }*/
-    .csr_table td:first-child {
-      color: #fff;
-    }  
-    .csr_table td:nth-child(3){
-      color: #5ef6ff;
-    }
-    .csr_table td:nth-child(7){
-      color: #5ef6ff;
+      margin-left: 2mm
     }
   </style>
 </head>
 <body>
   <!-- Original Image: https://www.kindpng.com/imgv/TomTJxJ_cute-angry-anime-girl-hd-png-download/ -->
-  <img src="assets/lucy.png" style="position: absolute; top: 180mm; left: 680mm; height: 120mm">
-  <!-- <img src="assets/judy.webp" style="position: absolute; top: 000mm; left: 778mm; height: 12mm; box-shadow: 5px 5px 5px rgba(255, 56, 69, 0.2); "> -->
-  <img src="assets/Cyberpunk_2077_logo.svg.png" style="position: absolute; top: 000mm; left: 732mm; height: 15mm;">
+  <img src="assets/corner.png" style="position: absolute; top: 200mm; left: 700mm; height: 100mm">
   <div class="page">
     <div class="content vertical flex">
       <div class="header flex">
-        <img src="assets/riscv-logo-cyan-glitch.png">
+        <img src="assets/riscv-logo-1.png">
         <span>
-          REFERENCE SHEET
+          Reference Sheet
         </span>
       </div>
       <div class="gap flex">
@@ -123,7 +80,7 @@
               <!-- Integer Register -->
               <table>
                 <tr>
-                  <th colspan="4" class = "second_header"> General registers</th>
+                  <th colspan="4" style="background: #5c6bc0">General registers</th>
                 </tr>
                 <tr>
                   <td>Register</td>
@@ -132,7 +89,7 @@
                   <td>Saver</td>
                 </tr>
                 <tr>
-                  <td class="important_blue">x0</td>
+                  <td>x0</td>
                   <td>zero</td>
                   <td>Constant zero</td>
                   <td>--</td>
@@ -329,7 +286,7 @@
               <!-- FP Register -->
               <table>
                 <tr>
-                  <th colspan="4" class = "second_header">Floating Point Registers</th>
+                  <th colspan="4" style="background: #ff7043">Floating Point Registers</th>
                 </tr>
                 <tr>
                   <td>Register</td>
@@ -437,7 +394,6 @@
                   <td>f16</td>
                   <td>fa6</td>
                   <td>FP argument</td>
-                  <td>Caller</td>
                 <tr>
                   <td>f17</td>
                   <td>fa7</td>
@@ -534,7 +490,7 @@
               <!-- Assembler Directives -->
               <table>
                 <tr>
-                  <th colspan="4" class = "second_header">Assembler Directives</th>
+                  <th colspan="4" style="background: #757575">Assembler Directives</th>
                 </tr>
                 <tr>
                     <td>Directive</td>
@@ -696,11 +652,11 @@
                     <td>b,[pad_val=0]</td>
                     <td>byte align</td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td>.zero</td>
                     <td>integer</td>
                     <td>zero bytes</td>
-                </tr> -->
+                </tr>
                 <tr>
                     <td>.variant_cc</td>
                     <td>symbol_name</td>
@@ -716,9 +672,9 @@
           </div>
           <div class="gap flex">
             <!-- CSR Registers -->
-            <table class = "csr_table">
+            <table>
               <tr>
-                <th colspan="8" class = "second_header"> CSR Registers (Partial List)</th>
+                <th colspan="8" style="background: #7e57c2">CSR Registers (Partial List)</th>
               </tr>
               <tr>
                 <td>Number</td>
@@ -860,12 +816,12 @@
                 <td>minstret</td>
                 <td>Machine instructions-retired counter</td>
               </tr>
-              <!-- <tr>
+              <tr>
                 <td>0xF15</td>
                 <td>MRO</td>
                 <td>mconfigptr</td>
                 <td>Pointer to configuration data structure</td>
-              </tr> -->
+              </tr>
             </table>
           </div>
         </div>
@@ -873,7 +829,7 @@
           <!-- RV32I Integer Instruction -->
           <table>
             <tr>
-              <th colspan="10" class = "second_header"> RV32I Base Integer Instruction</th>
+              <th colspan="10" style="background: #5c6bc0">RV32I Base Integer Instruction</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -970,6 +926,30 @@
               <td>1100011</td>
             </tr>
             <tr>
+              <td>bltu</td>
+              <td>Branch Less Than Unsigned</td>
+              <td>B</td>
+              <td>if (R[rs1] &lt; R[rs2]) PC = PC + {imm, 1'b0}</td>
+              <td>imm[12|10:5]</td>
+              <td>rs2</td>
+              <td>rs1</td>
+              <td>110</td>
+              <td>imm[4:1|11]</td>
+              <td>1100011</td>
+            </tr>
+            <tr>
+              <td>bgeu</td>
+              <td>Branch Greater than or Equal Unsigned</td>
+              <td>B</td>
+              <td>if (R[rs1] &gt;= R[rs2]) PC = PC + {imm, 1'b0}</td>
+              <td>imm[12|10:5]</td>
+              <td>rs2</td>
+              <td>rs1</td>
+              <td>111</td>
+              <td>imm[4:1|11]</td>
+              <td>1100011</td>
+            </tr>
+            <tr>
               <td>lb</td>
               <td>Load Byte</td>
               <td>I</td>
@@ -999,6 +979,28 @@
               <td colspan="2">imm[11:0]</td>
               <td>rs1</td>
               <td>010</td>
+              <td>rd</td>
+              <td>0000011</td>
+            </tr>
+            <tr>
+              <td>lbu</td>
+              <td>Load Byte Unsigned</td>
+              <td>I</td>
+              <td>R[rd] = {24'b0, M[R[rs1]+imm][7:0]}</td>
+              <td colspan="2">imm[11:0]</td>
+              <td>rs1</td>
+              <td>100</td>
+              <td>rd</td>
+              <td>0000011</td>
+            </tr>
+            <tr>
+              <td>lhu</td>
+              <td>Load Halfword Unsigned</td>
+              <td>I</td>
+              <td>R[rd] = {16'b0, M[R[rs1]+imm][15:0]}</td>
+              <td colspan="2">imm[11:0]</td>
+              <td>rs1</td>
+              <td>101</td>
               <td>rd</td>
               <td>0000011</td>
             </tr>
@@ -1061,6 +1063,17 @@
               <td>0010011</td>
             </tr>
             <tr>
+              <td>sltiu</td>
+              <td>Set Less Than Immediate Unsigned</td>
+              <td>I</td>
+              <td>R[rd] = (R[rs1] &lt; imm) ? 1 : 0</td>
+              <td colspan="2">imm[11:0]</td>
+              <td>rs1</td>
+              <td>011</td>
+              <td>rd</td>
+              <td>0010011</td>
+            </tr>
+            <tr>
               <td>xori</td>
               <td>XOR Immediate</td>
               <td>I</td>
@@ -1095,7 +1108,7 @@
             </tr>
             <tr>
               <td>slli</td>
-              <td>Shift Left Logical I</td>
+              <td>Shift Left Logical Immediate</td>
               <td>I</td>
               <td>R[rd] = R[rs1] &lt;&lt; imm</td>
               <td>0000000</td>
@@ -1107,7 +1120,7 @@
             </tr>
             <tr>
               <td>srli</td>
-              <td>Shift Right Logical I</td>
+              <td>Shift Right Logical Immediate</td>
               <td>I</td>
               <td>R[rd] = R[rs1] &gt;&gt; imm</td>
               <td>0000000</td>
@@ -1119,7 +1132,7 @@
             </tr>
             <tr>
               <td>srai</td>
-              <td>Shift Right Arithmetic I</td>
+              <td>Shift Right Arithmetic Immediate</td>
               <td>I</td>
               <td>R[rd] = R[rs1] &gt;&gt;&gt; imm</td>
               <td>0100000</td>
@@ -1174,6 +1187,18 @@
               <td>rs2</td>
               <td>rs1</td>
               <td>010</td>
+              <td>rd</td>
+              <td>0110011</td>
+            </tr>
+            <tr>
+              <td>sltu</td>
+              <td>Set Less Than Unsigned</td>
+              <td>R</td>
+              <td>R[rd] = (R[rs1] &lt; R[rs2]) ? 1 : 0</td>
+              <td>0000000</td>
+              <td>rs2</td>
+              <td>rs1</td>
+              <td>011</td>
               <td>rd</td>
               <td>0110011</td>
             </tr>
@@ -1274,7 +1299,7 @@
           <!-- zicsr Instruction -->
           <table>
             <tr>
-              <th colspan="10" class = "second_header"> Control and Status Register Instruction Extension (Zicsr)</th>
+              <th colspan="10" style="background: #7e57c2">Control and Status Register Instruction Extension (Zicsr)</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -1318,7 +1343,7 @@
             </tr>
             <tr>
               <td>csrrwi</td>
-              <td>CSR Read and Write Imm</td>
+              <td>CSR Read and Write Immediate</td>
               <td>I</td>
               <td>R[rd] = CSR; CSR = {27'b0, imm}</td>
               <td colspan="2">csr</td>
@@ -1329,7 +1354,7 @@
             </tr>
             <tr>
               <td>csrrsi</td>
-              <td>CSR Read and Set Imm</td>
+              <td>CSR Read and Set Immediate</td>
               <td>I</td>
               <td>R[rd] = CSR; CSR = CSR | {27'b0, imm}</td>
               <td colspan="2">csr</td>
@@ -1340,45 +1365,12 @@
             </tr>
             <tr>
               <td>csrrci</td>
-              <td>CSR Read and Clear Imm</td>
+              <td>CSR Read and Clear Immediate</td>
               <td>I</td>
               <td>R[rd] = CSR; CSR = CSR & ~{27'b0, imm}</td>
               <td colspan="2">csr</td>
               <td>uimm</td>
               <td>011</td>
-              <td>rd</td>
-              <td>1110011</td>
-            </tr>
-            <tr>
-              <td>rdcycle</td>
-              <td>Read Full Cycle</td>
-              <td>I</td>
-              <td>R[rd] = CYCLE; CYCLE = CYCLE | R[rs1]</td>
-              <td colspan="2">csr</td>
-              <td>CYCLE</td>
-              <td>010</td>
-              <td>rd</td>
-              <td>1110011</td>
-            </tr>
-            <tr>
-              <td>rdtime</td>
-              <td>Read Full Time</td>
-              <td>I</td>
-              <td>R[rd] = TIME; TIME = TIME | R[rs1]</td>
-              <td colspan="2">csr</td>
-              <td>TIME</td>
-              <td>010</td>
-              <td>rd</td>
-              <td>1110011</td>
-            </tr>
-            <tr>
-              <td>rdinstret</td>
-              <td>Read Retired Instructions</td>
-              <td>I</td>
-              <td>R[rd] = INSTRTE; INSTRTE = INSTRTE | R[rs1]</td>
-              <td colspan="2">csr</td>
-              <td>INSTRTE</td>
-              <td>010</td>
               <td>rd</td>
               <td>1110011</td>
             </tr>
@@ -1388,7 +1380,7 @@
           <!-- RV64I Integer Instruction -->
           <table>
             <tr>
-              <th colspan="11" class = "second_header"> V64I Base Integer Instruction</th>
+              <th colspan="11" style="background: #78909c">RV64I Base Integer Instruction</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -1578,7 +1570,7 @@
           <!-- M Instruction -->
           <table>
             <tr>
-              <th colspan="10" class = "second_header"> Integer Multiplication and Division Extension (M)</th>
+              <th colspan="10" style="background: #26a69a">Integer Multiplication and Division Extension (M)</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -1612,13 +1604,13 @@
             </tr>
             <tr>
               <td>div</td>
-              <td>Divide</td>
+              <td>DIVide</td>
               <td>R</td>
               <td>R[rd] = R[rs1] / R[rs2]</td>
             </tr>
             <tr>
               <td>divu</td>
-              <td>Divide Unsigned</td>
+              <td>DIVide Unsigned</td>
               <td>R</td>
               <td>R[rd] = R[rs1] / R[rs2]</td>
             </tr>
@@ -1638,7 +1630,7 @@
           <!-- A Instruction -->
           <table>
             <tr>
-              <th colspan="10" class = "second_header"> Atomic Instruction Extension (A)</th>
+              <th colspan="10" style="background: #9ccc65">Atomic Instruction Extension (A)</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -1716,7 +1708,7 @@
           <!-- zifenci Instruction -->
           <table>
             <tr>
-              <th colspan="10" class = "second_header"> Instruction-Fetch Fence Extension (Zifencei)</th>
+              <th colspan="10" style="background: #8d6e63">Instruction-Fetch Fence Extension (Zifencei)</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -1736,7 +1728,7 @@
           <!-- F Instruction -->
           <table>
             <tr>
-              <th colspan="10" class = "second_header"> Single-Precision Floating Point Extension (F)</th>
+              <th colspan="10" style="background: #ff7043">Single-Precision Floating Point Extension (F)</th>
             </tr>
             <tr>
               <td>Inst.</td>
@@ -1800,7 +1792,7 @@
             </tr>
             <tr>
               <td>fdiv.s</td>
-              <td>Divide</td>
+              <td>DIVide</td>
               <td>R</td>
               <td>F[rd] = F[rs1] / F[rs2]</td>
             </tr>
